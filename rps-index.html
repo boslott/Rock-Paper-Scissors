@@ -1,0 +1,235 @@
+<!--
+    Rock Paper Scissors Game index.html
+    Bo Slott
+    September 2017
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- reset all styles -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+  <!-- boostrap 3.3 CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Rock Paper Scissors Game style sheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/rps-styles.css">
+
+  <title>Rock Paper Scissor Game | Bo's BootCamp Games</title>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+
+    <div id="user-play">
+
+      <div class="row choose-one">
+
+        <div class="choose-one-banner">
+          <h1>CHOOSE YOUR PLAY</h1>
+        </div>
+
+      </div>
+
+      <div class="row choices">
+
+        <div class="col-sm-3 col-sm-offset-2 choice-item">
+
+          <img class="game-img" id="rock" src="assets/images/cartoonRock.png" alt="Rock Image" width="200" height="200" />
+
+        </div>
+
+        <div class="col-sm-2 choice-item">
+
+          <img class="game-img" id="paper" src="assets/images/cartoonPaper.png" alt="Paper Image" width="200" height="200" />
+
+        </div>
+
+        <div class="col-sm-2 choice-item">
+
+          <img class="game-img" id="scissors" src="assets/images/cartoonScissors.png" alt="Scissors Image" width="200" height="200" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row" id="gamePlay-display">
+
+      <div class="col-sm-4 col-sm-offset-2 gamePlay-display-content">
+
+        <div class="row gamePlay-display-headers">
+
+          <h2>Your Choice:</h2>
+
+        </div>
+
+        <div class="row gamePlay-display-headers">
+
+          <h2>Computer's Choice:</h2>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-2 gamePlay-display-choices">
+
+        <div class="row gamePlay-display-choices">
+
+          <img class="game-img" id="rock-choice-user" src="assets/images/cartoonRock.png" alt="Rock Image" width="100" height="100" />
+          <img class="game-img" id="paper-choice-user" src="assets/images/cartoonPaper.png" alt="Paper Image" width="100" height="100" />
+          <img class="game-img" id="scissors-choice-user" src="assets/images/cartoonScissors.png" alt="Scissors Image" width="75" height="100" />
+
+        </div>
+
+        <div class="row gamePlay-display-choices">
+
+          <img class="game-img" id="rock-choice-comp" src="assets/images/cartoonRock.png" alt="Rock Image" width="100" height="100" />
+          <img class="game-img" id="paper-choice-comp" src="assets/images/cartoonPaper.png" alt="Paper Image" width="100" height="100" />
+          <img class="game-img" id="scissors-choice-comp" src="assets/images/cartoonScissors.png" alt="Scissors Image" width="75" height="100" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row gamePlay-display-results" id="gp-display-results">
+
+      <h2><span id="gp-results"></span><h2>
+
+    </div>
+
+    <div class="row" id="scoreboard-display">
+
+      <div class="row scoreboard-header">
+
+        <h2>SCOREBOARD</h2>
+
+      </div>
+
+      <div class="row scoreboard-content-box">
+
+        <div class="col-sm-4 col-sm-offset-2 scoreboard-var-names">
+
+          <div class="row">
+
+            <h3>Total Wins:</h3>
+
+          </div>
+
+          <div class="row">
+
+            <h3>Total Loses:</h3>
+
+          </div>
+
+          <div class="row">
+
+            <h3>Total Ties:</h3>
+
+          </div>
+
+        </div>
+
+        <div class="col-sm-3 scoreboard-var-values">
+
+          <div class="row">
+
+            <span id="win"></span>
+
+          </div>
+
+          <div class="row">
+
+            <span id="lose"></span>
+
+          </div>
+
+          <div class="row">
+
+            <span id="tie"></span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Bootstrap javascript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Rock Paper Scissors Game javascript sheet -->
+  <script src="assets/javascript/rps-game.js"></script>
+
+</body>
+</html>
