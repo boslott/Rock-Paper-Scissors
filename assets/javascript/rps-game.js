@@ -75,7 +75,7 @@ function gamePlay () {
       break;
   }
 
-  document.getElementById("user-play").style.opacity = "0.4";
+  // document.getElementById("user-play").style.opacity = "0.4";
   document.getElementById("gamePlay-display").style.display = "block";
 
   presentGamePlay (userAnswer, computerAnswer, outcome);
