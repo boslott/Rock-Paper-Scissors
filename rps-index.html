@@ -25,7 +25,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default fix-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -35,45 +35,25 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="#"><span class="logo">Bo-Nanza</span></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        
+        
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <li><a href="#">Home</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="#">Rock Paper Scissors</a></li>
+              <li><a href="#">Psychic Game</a></li>
+              <li><a href="#">Hangman Game</a></li>
             </ul>
           </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -153,25 +133,39 @@
 
       </div>
 
-    </div>
+      <div class="col-sm-8 col-sm-offset-2">
 
-    <div class="row gamePlay-display-results" id="gp-display-results">
+        <div class="see-results-button" id="results-button">
 
-      <h2><span id="gp-results"></span><h2>
+          <h2>See Results</h2>
 
-    </div>
-
-    <div class="row" id="scoreboard-display">
-
-      <div class="row scoreboard-header">
-
-        <h2>SCOREBOARD</h2>
+        </div>
 
       </div>
 
-      <div class="row scoreboard-content-box">
+    </div>
+
+    
+
+    <div class="row" id="scoreboard-display">
+
+      <div class="row gamePlay-display-results" id="gp-display-results">
+
+         <div class="col-sm-8 col-sm-offset-2">
+          <h2><span id="gp-results"></span></h2>
+        </div>
+
+      </div>
+
+      <div class="row scoreboard-content-box" id="sb-content-box">
 
         <div class="col-sm-4 col-sm-offset-2 scoreboard-var-names">
+
+          <div class="row">
+
+            <h3>Total Games:</h3>
+
+          </div>
 
           <div class="row">
 
@@ -193,23 +187,29 @@
 
         </div>
 
-        <div class="col-sm-3 scoreboard-var-values">
+        <div class="col-sm-4 scoreboard-var-values">
 
           <div class="row">
 
-            <span id="win"></span>
+            <h3><span id="games"></span></h3>
 
           </div>
 
           <div class="row">
 
-            <span id="lose"></span>
+            <h3><span id="win"></span></h3>
 
           </div>
 
           <div class="row">
 
-            <span id="tie"></span>
+           <h3> <span id="lose"></span></h3>
+
+          </div>
+
+          <div class="row">
+
+            <h3><span id="tie"></span></h3>
 
           </div>
 
@@ -217,9 +217,33 @@
 
       </div>
 
+      <div class="row" id="play-again-button">
+
+        <a href="javascript:jumpScroll()">
+          <h2>PLAY AGAIN</h2>
+        </a>
+
+      </div>
+
+      <!-- <div class="row play-again-button">
+
+        <h2 id="startover">Reset The Scoreboard</h2>
+
+      </div> -->
+
     </div>
 
   </div>
+
+  <footer class="site-footer">
+
+    <div>
+
+      <h2>&copy; Copyright 2017 Bo Slott</h2>
+
+    </div>
+
+  </footer>
 
 
   <!-- jQuery -->

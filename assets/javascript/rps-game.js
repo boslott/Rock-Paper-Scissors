@@ -7,7 +7,7 @@ var availableAnswers = ["r", "p", "s"];
 var winTotal = 0;
 var loseTotal = 0;
 var tieTotal = 0;
-var output = "";
+var gamesTotal = 0;
 
 document.getElementById("rock").onclick = function (event) {
   
@@ -55,9 +55,9 @@ document.getElementById("scissors").onclick = function (event) {
 
 function gamePlay () {
 
-  var computerAnswer = availableAnswers[Math.floor(Math.random() * availableAnswers.length)];
+  gamesTotal++;
 
-  output = "Your Answer is " + userAnswer + " and the computer is " + computerAnswer;
+  var computerAnswer = availableAnswers[Math.floor(Math.random() * availableAnswers.length)];
 
   var outcome = getWinner(userAnswer, computerAnswer);
 
@@ -78,7 +78,7 @@ function gamePlay () {
   // document.getElementById("user-play").style.opacity = "0.4";
   document.getElementById("gamePlay-display").style.display = "block";
 
-  presentGamePlay (userAnswer, computerAnswer, outcome);
+  presentGamePlay (userAnswer, computerAnswer, outcome, gamesTotal);
 
   scoreboard ();
 
@@ -116,9 +116,11 @@ function getWinner(val1, val2) {
 }
 
 
-function presentGamePlay (val1, val2, val3) {
+function presentGamePlay (val1, val2, val3, val4) {
 
-
+  if (val4 < 2) {
+    document.getElementById("user-play").style.display = "none";
+  }
 
   switch(val1) {
     case "r":
@@ -160,25 +162,84 @@ function presentGamePlay (val1, val2, val3) {
       break;
   }
 
-  document.getElementById("gp-display-results").style.display = "block";
+  if (val4 < 2) {
+    document.getElementById("results-button").onclick = function(event) {
+      presentScoreboard (val3, val4);
+    }
 
-  if (val3 === "w") {
-    document.getElementById("gp-results").textContent = "You Win!";
-  }
-  else if (val3 === "l") {
-    document.getElementById("gp-results").textContent = "You Lose :(";
   }
   else {
-    document.getElementById("gp-results").textContent = "You Tie";
+    presentScoreboard (val3, val4);
   }
 
 }
+
+function presentScoreboard (val1, val2) {
+
+  if (val2 < 2) {
+    document.getElementById("gamePlay-display").style.display = "none";
+  }
+
+    document.getElementById("gp-display-results").style.display = "block";
+
+    if (val1 === "w") {
+      document.getElementById("gp-results").textContent = "You Win!";
+    }
+    else if (val1 === "l") {
+      document.getElementById("gp-results").textContent = "You Lose :(";
+    }
+    else {
+      document.getElementById("gp-results").textContent = "You Tie";
+    }
+
+    document.getElementById("sb-content-box").style.display = "block";
+
+    document.getElementById("play-again-button").style.display = "block";
+
+    document.getElementById("play-again-button").onclick = function(event) {
+
+      newGame ();
+
+    }
+
+    document.getElementById("startover").style.display = "block";
+
+    document.getElementById("startover").onclick = function (event) {
+
+      resetScoreboard();
+
+    }
+
+}
+
+function newGame () {
+
+      document.getElementById("user-play").style.display = "block";
+
+      document.getElementById("gamePlay-display").style.display = "block";
+    
+      document.getElementById("results-button").style.display = "none";
+
+}
+
 
 function scoreboard () {
   document.getElementById("scoreboard-display").style.display = "block";
   document.getElementById("win").textContent = winTotal;
   document.getElementById("lose").textContent = loseTotal;
   document.getElementById("tie").textContent = tieTotal;
+  document.getElementById("games").textContent = gamesTotal;
+}
+
+function resetScoreboard () {
+  winTotal = 0;
+  loseTotal = 0;
+  tieTotal = 0;
+  gamesTotal = 0;
+}
+
+function jumpScroll() {
+  window.scroll(0,0);
 }
 
 
